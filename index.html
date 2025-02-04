@@ -1,6 +1,6 @@
 <html>
   <body>
-    <p> Hello World!!! </p>
+    <p> Hello World!! with username </p>
 
     <script type='text/javascript'>
 	function initEmbeddedMessaging() {
@@ -19,6 +19,24 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+
+	
+    var userName = "Doe";
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "UserName": {
+              "value": userName,
+              "isEditableByEndUser": false
+            }
+            
+        });
 </script>
 <script type='text/javascript' src='https://orgfarm-6f86c22fe3-dev-ed.develop.my.site.com/ESWdeploymenttogithub1738666773203/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
